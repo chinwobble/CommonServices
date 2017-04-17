@@ -43,6 +43,7 @@ namespace WebAccessService.EVEXmlAPIService
             {
                 uriBuilder.Query = query.ToString();
             }
+            uriBuilder.Path = path;
             return uriBuilder.ToString();
         }
     }

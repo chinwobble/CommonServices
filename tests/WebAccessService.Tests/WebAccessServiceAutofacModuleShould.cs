@@ -17,14 +17,15 @@ namespace WebAccessService.Tests
     public class WebAccessServiceAutofacModuleShould
     {
         [Fact]
-        public void WebAccessServiceAutofacModule_Can_Resolve_EVEXMLAPIService()
+        public async Task WebAccessServiceAutofacModule_Can_Resolve_EVEXMLAPIService()
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<WebAccessServiceAutofacModule>();
 
             using (var container = builder.Build())
             {
-                container.Resolve<EVEXMLAPIService>();
+                var service = container.Resolve<IEVEXMLAPIService>();
+                await service.GetServerStatus();
             }
         }
     }
