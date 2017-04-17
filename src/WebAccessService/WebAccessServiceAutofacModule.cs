@@ -1,16 +1,12 @@
-﻿using System;
+﻿using Autofac;
+using NLog;
+using RateLimiter;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
-using WebAccessService.EVEXmlAPIService.Models;
+using System.Net.Http;
+using System.Net.Http.Formatting;
 using WebAccessService.Common;
 using WebAccessService.EVEXmlAPIService;
-using System.Net.Http.Formatting;
-using System.Net.Http;
-using RateLimiter;
-using NLog;
 
 namespace WebAccessService
 {
