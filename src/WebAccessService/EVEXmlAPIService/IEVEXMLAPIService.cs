@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using WebAccessService.EVEXmlAPIService.Models;
 
-namespace WebAccessService
+namespace WebAccessService.EVEXmlAPIService
 {
+    public interface IEVEXMLAPIService
+    {
+        Task<ServerStatus> GetServerStatus();
+    }
 }

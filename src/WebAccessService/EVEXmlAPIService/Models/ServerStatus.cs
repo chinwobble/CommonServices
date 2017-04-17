@@ -9,14 +9,8 @@ namespace WebAccessService.EVEXmlAPIService.Models
 {
     /// <summary>
     /// http://eveonline-third-party-documentation.readthedocs.io/en/latest/xmlapi/server/serv_serverstatus.html
-    /// 
     /// </summary>
-    [XmlRoot(ElementName = "eveapi", Namespace = "")]
-    public class ServerStatusResponse : ResponseModelBase<ServerStatus>
-    {
-    }
-
-    public class ServerStatus
+    public class ServerStatus : IEVEXMLResponseResult
     {
         [XmlElement("onlinePlayers")]
         public int OnlinePlayers { get; set; }

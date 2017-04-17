@@ -8,7 +8,8 @@ using System.Xml.Serialization;
 namespace WebAccessService.EVEXmlAPIService.Models
 {
     [XmlRoot(ElementName = "eveapi", Namespace = "")]
-    public abstract class ResponseModelBase<T>
+    public class ResponseWrapper<T> where
+        T : IEVEXMLResponseResult
     {
         [XmlAttribute("version")]
         public int Version { get; set; }

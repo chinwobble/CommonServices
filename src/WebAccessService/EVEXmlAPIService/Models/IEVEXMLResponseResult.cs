@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAccessService.EVEXmlAPIService.Models
 {
-    class Kills : IEVEXMLResponseResult
+    public interface IEVEXMLResponseResult
     {
     }
 }
