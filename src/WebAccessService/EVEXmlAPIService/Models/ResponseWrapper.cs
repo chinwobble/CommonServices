@@ -5,7 +5,7 @@ namespace WebAccessService.EVEXmlAPIService.Models
 {
     [XmlRoot(ElementName = "eveapi", Namespace = "")]
     public class ResponseWrapper<T> where
-        T : IEVEXMLResponseResult
+        T : IEVEXmlResult
     {
         [XmlAttribute("version")]
         public int Version { get; set; }

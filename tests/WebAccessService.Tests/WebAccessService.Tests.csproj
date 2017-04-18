@@ -83,6 +83,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EVEXmlAPIService\Models\JumpsShould.cs" />
+    <Compile Include="EVEXmlAPIService\Models\KillsShould.cs" />
+    <Compile Include="EVEXmlAPIService\Models\ServerStatusShould.cs" />
+    <Compile Include="EVEXmlAPIService\Models\SovereigntyShould.cs" />
+    <Compile Include="TestDataHelpers.cs" />
+    <Compile Include="TestsBase.cs" />
     <Compile Include="WebAccessServiceAutofacModuleShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -98,6 +104,11 @@
       <Project>{71946e3c-1083-4b78-a91a-3da3867f28d1}</Project>
       <Name>WebAccessService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MockData\ServerStatus.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

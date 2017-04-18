@@ -21,9 +21,12 @@ namespace WebAccessService.Tests
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<WebAccessServiceAutofacModule>();
-
+            
+            
+            
             using (var container = builder.Build())
             {
+                
                 var service = container.Resolve<IEVEXMLAPIService>();
                 await service.GetServerStatus();
             }

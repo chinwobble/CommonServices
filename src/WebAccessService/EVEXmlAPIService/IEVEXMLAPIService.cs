@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebAccessService.EVEXmlAPIService.Models;
 
 namespace WebAccessService.EVEXmlAPIService
@@ -6,5 +7,8 @@ namespace WebAccessService.EVEXmlAPIService
     public interface IEVEXMLAPIService
     {
         Task<ServerStatus> GetServerStatus();
+        Task<List<Sovereignty>> GetSovereignty();
+        Task<List<Jumps>> GetJumps();
+        Task<List<Kills>> GetKills();
     }
 }

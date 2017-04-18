@@ -23,10 +23,6 @@ namespace WebAccessService
             registerEVEAPIServices(builder);
             builder.Register(c => LogManager.GetCurrentClassLogger())
                 .As<ILogger>();
-
-            builder.Register<TimeLimiter>(c => TimeLimiter.GetFromMaxCountByInterval(c.Resolve<IConfigurationProvider>().EveAPIRateLimit, TimeSpan.FromSeconds(1)))
-                .Keyed<IRateLimiter>(WebServices.EVEXMLAPI)
-                .SingleInstance();
                 
             builder.RegisterType<ConfigurationProvider>()
                 .As<IConfigurationProvider>()
@@ -38,7 +34,7 @@ namespace WebAccessService
                 var mediaTypeFormatters = new MediaTypeFormatterCollection();
                 mediaTypeFormatters.XmlFormatter.UseXmlSerializer = true;
                 return mediaTypeFormatters;
-            })  .As<IEnumerable<MediaTypeFormatter>>()
+            })  .AsSelf()
                 .SingleInstance();
         }
 
@@ -63,8 +59,12 @@ namespace WebAccessService
             builder.Register(c =>
                 new HttpClientWrapper(
                     c.ResolveKeyed<HttpClient>(WebServices.EVEXMLAPI),
-                    c.Resolve<IEnumerable<MediaTypeFormatter>>()
+                    c.Resolve<MediaTypeFormatterCollection>()
             ))  .Keyed<IHttpClientWrapper>(WebServices.EVEXMLAPI)
+                .SingleInstance();
+
+            builder.Register<TimeLimiter>(c => TimeLimiter.GetFromMaxCountByInterval(c.Resolve<IConfigurationProvider>().EveAPIRateLimit, TimeSpan.FromSeconds(1)))
+                .Keyed<IRateLimiter>(WebServices.EVEXMLAPI)
                 .SingleInstance();
         }
     }

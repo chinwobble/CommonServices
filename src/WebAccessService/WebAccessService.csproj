@@ -83,7 +83,10 @@
     <Compile Include="Common\Logging.cs" />
     <Compile Include="Common\LoggingHandler.cs" />
     <Compile Include="Common\RateLimitHandler.cs" />
-    <Compile Include="EVEXmlAPIService\Models\IEVEXMLResponseResult.cs" />
+    <Compile Include="EVEXmlAPIService\Models\IEVEXmlResultRow.cs" />
+    <Compile Include="EVEXmlAPIService\Models\IEVEXmlResult.cs" />
+    <Compile Include="EVEXmlAPIService\Models\EVEXmlResultRowset.cs" />
+    <Compile Include="EVEXmlAPIService\Models\Jumps.cs" />
     <Compile Include="WebAccessServiceAutofacModule.cs" />
     <Compile Include="Common\HttpClientWrapper.cs" />
     <Compile Include="Common\IHttpClientWrapper.cs" />

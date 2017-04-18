@@ -7,10 +7,10 @@ namespace WebAccessService.Common
 {
     public class HttpClientWrapper : IHttpClientWrapper
     {
-        private readonly IEnumerable<MediaTypeFormatter> _mediaTypeFormatters;
+        private readonly MediaTypeFormatterCollection _mediaTypeFormatters;
         private readonly HttpClient _httpClient;
 
-        public HttpClientWrapper(HttpClient httpClient, IEnumerable<MediaTypeFormatter> mediaTypeFormatters)
+        public HttpClientWrapper(HttpClient httpClient, MediaTypeFormatterCollection mediaTypeFormatters)
         {
             _httpClient = httpClient;
             _mediaTypeFormatters = mediaTypeFormatters;

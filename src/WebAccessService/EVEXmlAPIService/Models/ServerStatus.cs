@@ -5,14 +5,14 @@ namespace WebAccessService.EVEXmlAPIService.Models
     /// <summary>
     /// http://eveonline-third-party-documentation.readthedocs.io/en/latest/xmlapi/server/serv_serverstatus.html
     /// </summary>
-    public class ServerStatus : IEVEXMLResponseResult
+    public class ServerStatus : IEVEXmlResult
     {
         [XmlElement("onlinePlayers")]
         public int OnlinePlayers { get; set; }
         [XmlElement("serverOpen")]
         public string ServerOpen
         { 
-            set { _serverOpen = bool.Parse(value); }
+            set { _serverOpen = bool.Parse(value.ToLower()); }
             get { return _serverOpen.ToString(); }
         }
         /// <summary>

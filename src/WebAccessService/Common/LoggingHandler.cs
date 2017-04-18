@@ -21,7 +21,7 @@ namespace WebAccessService.Common
 
             var endTime = DateTime.UtcNow;
             var elapsedTime = (startTime - endTime).Duration();
-            _logger.Info(request.RequestUri + $"finished in {elapsedTime}");
+            _logger.Info($"{request.Method} {request.RequestUri} finished in {elapsedTime}");
             return result;
         }
     }

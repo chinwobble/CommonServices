@@ -7,23 +7,17 @@ namespace WebAccessService.EVEXmlAPIService.Models
     /// <summary>
     /// http://eveonline-third-party-documentation.readthedocs.io/en/latest/xmlapi/map/map_sovereignty.html
     /// </summary>
-    public class Sovereignty : IEVEXMLResponseResult
+    public class Sovereignty : IEVEXmlResultRow
     {
-        [XmlArray("rowset")]
-        [XmlArrayItem("row")]
-        public List<SovereigntyRows> RowSet { get; set; }
-        public class SovereigntyRows
-        {
-            [XmlAttribute("solarSystemID")]
-            public int solarSystemId { get; set; }
-            [XmlAttribute("allianceID")]
-            public int AllianceId { get; set; }
-            [XmlAttribute("factionID")]
-            public int FactionId { get; set; }
-            [XmlAttribute("solarSystemName")]
-            public string SolarSystemName { get; set; }
-            [XmlAttribute("corporationID")]
-            public int CorporationId { get; set; }
-        }
+        [XmlAttribute("solarSystemID")]
+        public int solarSystemId { get; set; }
+        [XmlAttribute("allianceID")]
+        public int AllianceId { get; set; }
+        [XmlAttribute("factionID")]
+        public int FactionId { get; set; }
+        [XmlAttribute("solarSystemName")]
+        public string SolarSystemName { get; set; }
+        [XmlAttribute("corporationID")]
+        public int CorporationId { get; set; }
     }
 }
