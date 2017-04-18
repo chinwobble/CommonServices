@@ -19,7 +19,7 @@ namespace WebAccessService.Common
         public async Task<T> GetAsync<T>(string url)
         {
             var response = await _httpClient.GetAsync(url);
-            var responseStr = await response.Content.ReadAsStringAsync();
+            response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<T>(_mediaTypeFormatters);
         }
 

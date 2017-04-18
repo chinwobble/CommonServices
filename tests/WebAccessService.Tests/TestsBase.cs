@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using NLog;
+using NLog.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,11 @@ namespace WebAccessService.Tests
             var builder = new ContainerBuilder();
             builder.RegisterModule<WebAccessServiceAutofacModule>();
             _container = builder.Build();
+        }
+
+        public void SetUpLogTable()
+        {
+            LogManager.Configuration.Install(new InstallationContext());
         }
 
         #region IDisposable Support
