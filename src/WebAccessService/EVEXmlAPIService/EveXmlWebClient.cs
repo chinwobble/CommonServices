@@ -7,12 +7,12 @@ using WebAccessService.EVEXmlAPIService.Models;
 
 namespace WebAccessService.EVEXmlAPIService
 {
-    public class EVEXMLAPIService : IEVEXMLAPIService
+    public class EveXmlWebClient : IEveXmlWebClient
     {
         private readonly IConfigurationProvider _config;
         private readonly IHttpClientWrapper _httpClient;
 
-        public EVEXMLAPIService(IHttpClientWrapper httpClient, IConfigurationProvider config)
+        public EveXmlWebClient(IHttpClientWrapper httpClient, IConfigurationProvider config)
         {
             _httpClient = httpClient;
             _config = config;

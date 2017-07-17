@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using System.Threading.Tasks;
 using Autofac;
 using System.Net.Http.Formatting;
-using WebAccessService.EVEXmlAPIService.Models;
 using System.Net.Http.Headers;
+using NUnit.Framework;
+using WebAccessService.EVEXmlAPIService.Models;
 
 namespace WebAccessService.Tests.EVEXmlAPIService.Models
 {
+    [TestFixture]
     public class ServerStatusShould : TestsBase
     {
-        [Fact]
+        [Test]
         public async Task Deserialise_Correctly()
         {
             var formatters = _container.Resolve<MediaTypeFormatterCollection>();
@@ -23,8 +20,8 @@ namespace WebAccessService.Tests.EVEXmlAPIService.Models
             
             var result = await formatter.ReadFromStreamAsync(typeof(ResponseWrapper<ServerStatus>), stream, httpResponse.Content, null)
                 as ResponseWrapper<ServerStatus>;
-            Assert.Equal(34999, result.Result.OnlinePlayers);
-            Assert.Equal("True", result.Result.ServerOpen);
+            Assert.AreEqual(34999, result.Result.OnlinePlayers);
+            Assert.AreEqual("True", result.Result.ServerOpen);
         }
     }
 }

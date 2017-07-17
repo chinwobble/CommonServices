@@ -44,10 +44,10 @@ namespace WebAccessService
         /// <param name="builder"></param>
         private void registerEVEAPIServices(ContainerBuilder builder)
         {
-            builder.Register<EVEXMLAPIService>(c => new EVEXMLAPIService(
+            builder.Register<EveXmlWebClient>(c => new EveXmlWebClient(
                     c.ResolveKeyed<IHttpClientWrapper>(WebServices.EVEXMLAPI),
                     c.Resolve<IConfigurationProvider>()))
-                .As<IEVEXMLAPIService>()
+                .As<IEveXmlWebClient>()
                 .InstancePerLifetimeScope();
 
             builder.Register<HttpClient>(c => HttpClientFactory.Create(

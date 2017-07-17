@@ -4,7 +4,7 @@ using WebAccessService.EVEXmlAPIService.Models;
 
 namespace WebAccessService.EVEXmlAPIService
 {
-    public interface IEVEXMLAPIService
+    public interface IEveXmlWebClient
     {
         Task<ServerStatus> GetServerStatus();
         Task<List<Sovereignty>> GetSovereignty();

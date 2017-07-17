@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using NUnit.Framework;
 
 namespace WebAccessService.Tests.EVEXmlAPIService.Models
 {
+    [TestFixture]
     class KillsShould : TestsBase
     {
-        [Fact]
+        [Test]
         public void Deserialise_Correctly()
         {
             

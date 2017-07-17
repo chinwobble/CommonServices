@@ -1,19 +1,15 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using NUnit.Framework;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using WebAccessService.EVEXmlAPIService.Models;
-using Xunit;
 
 namespace WebAccessService.Tests.EVEXmlAPIService.Models
 {
+    [TestFixture]
     public class JumpsShould : TestsBase
     {
-        [Fact]
+        [Test]
         public void Deserialise_Correctly()
         {
             var mediaTypeFormatters = _container.Resolve<MediaTypeFormatterCollection>();
